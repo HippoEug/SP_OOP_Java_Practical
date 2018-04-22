@@ -1,0 +1,28 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class TotalAverage {
+	public static void main(String args[]) {
+		int i = 0;
+		double currentNumber = 0, total = 0, average = 0;
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Enter Number: ");
+		currentNumber = sc.nextInt();
+		
+		do {
+			total += currentNumber;
+			i++;
+			
+			System.out.print("Enter Number: ");
+			currentNumber = sc.nextInt();
+		} while (currentNumber != 0);
+		
+		average = total/i;
+		
+		System.out.print("Average = " + average);
+		
+		sc.close();
+	}
+}
