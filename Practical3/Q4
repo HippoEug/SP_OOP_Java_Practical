@@ -1,4 +1,3 @@
-
 public class SmallestInteger {
 	public static void main (String args[]) {
 		int squareResult = 0;
