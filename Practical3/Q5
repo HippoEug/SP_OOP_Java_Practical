@@ -20,9 +20,8 @@ public class TotalAverage {
 		} while (currentNumber != 0);
 		
 		average = total/i;
-		
 		System.out.print("Average = " + average);
-		
+	
 		sc.close();
 	}
 }
