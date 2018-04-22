@@ -1,0 +1,56 @@
+
+public class Q5GPAModCred {
+	public static void main(String args[]) {
+		String[] results = {"A", "B+", "C", "D", "B"};
+		int[] modCred = {4, 3, 2, 5, 8};
+		
+		int totalCreditMod = 0;
+		double gradeGPA = 0, sopTotalMod = 0;
+		
+		for (int i=0; i<modCred.length; i++) {
+			totalCreditMod = totalCreditMod + modCred[i];
+		}
+		
+		for (int i=0; i<results.length; i++) {
+			switch (results[i]) {
+				case "A": {
+					gradeGPA = 4.0;
+					sopTotalMod = sopTotalMod + (gradeGPA*modCred[i]);
+					break;
+				}
+				case "B+": {
+					gradeGPA = 3.5;
+					sopTotalMod = sopTotalMod + (gradeGPA*modCred[i]);
+					break;
+				}
+				case "B": {
+					gradeGPA = 3.0;
+					sopTotalMod = sopTotalMod + (gradeGPA*modCred[i]);
+					break;
+				}
+				case "C+": {
+					gradeGPA = 2.5;
+					sopTotalMod = sopTotalMod + (gradeGPA*modCred[i]);
+					break;
+				}
+				case "C": {
+					gradeGPA = 2.0;
+					sopTotalMod = sopTotalMod + (gradeGPA*modCred[i]);
+					break;
+				}
+				case "D+": {
+					gradeGPA = 1.5;
+					sopTotalMod = sopTotalMod + (gradeGPA*modCred[i]);
+					break;
+				}
+				case "D": {
+					gradeGPA = 1.0;
+					sopTotalMod = sopTotalMod + (gradeGPA*modCred[i]);
+					break;
+				}
+			}
+		}
+		double finalGPA = sopTotalMod/totalCreditMod;
+		System.out.println("Your total GPA is: " + finalGPA);
+	}
+}
