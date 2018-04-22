@@ -1,0 +1,21 @@
+
+public class SmallestInteger {
+	public static void main (String args[]) {
+		int squareResult = 0;
+		int i = 0;
+		
+		/*
+		while (squareResult <= 22) {
+			squareResult = i*i;
+			i++;
+		}
+		*/
+		
+		do {
+			squareResult= i*i;
+			i++;
+		} while (squareResult <= 22);
+		
+		System.out.print("The smallest squared number = " + --i);
+	}
+}
