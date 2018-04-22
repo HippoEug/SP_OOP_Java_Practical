@@ -1,0 +1,52 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Q3InputMismatchException {
+	public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+	
+		int arraySize = 0; //declaring and initializing variable arraySize
+		
+		do {
+			try {
+				System.out.print("Enter an array size: ");
+				arraySize = sc.nextInt();
+			} catch (InputMismatchException e) { //catch exception of user entering value other than int
+				System.out.println("\nInvalid array size.");
+				sc.nextLine(); //clears the buffer;
+			}
+		} while (arraySize<=0); //loops until variable arraySize is legitimate
+		
+		System.out.println("\nThe array size is " + arraySize);
+		
+		double[] array = new double[arraySize]; //declaring an array, initializing based on previous user input
+		int i = 0;
+		
+		do {
+			try {
+				System.out.print("Enter number " + (i+1) + ": ");
+				array[i] = sc.nextDouble();
+				i++;
+			} catch (InputMismatchException e) {
+				System.out.println("Invalid Input.");
+				sc.nextLine(); //clears the buffer
+			}
+		} while (i<arraySize);
+		
+		avgArry(array);
+		System.out.println("The average is: " + avgArry(array));
+		
+		sc.close();
+	}
+	
+	public static double avgArry(double[] a) {
+			
+		double total = 0, average;
+		
+		for (int i=0; i<a.length; i++) {
+			total = total + a[i];
+		}
+		average = total/a.length;
+		return average;
+	}
+}
