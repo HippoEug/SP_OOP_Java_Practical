@@ -40,7 +40,7 @@ public class Q1CharArray {
 				System.out.print("catch e");
 			}
 		}
-		
+
 		sc.close();
 	}
 }
