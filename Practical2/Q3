@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class CurrentCalculator {
+	public static void main (String args[]) {
+		double current, voltage, resistance;
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter Voltage: ");
+		voltage = sc.nextDouble();
+		System.out.println("Enter Resistance: ");
+		resistance = sc.nextDouble();
+		sc.close();
+		
+		current = voltage/resistance;
+		System.out.println("The current is " + current + ", given voltage and resistance are " + voltage + " and " + resistance + " respectively.");
+	}
+}
