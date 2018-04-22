@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class BankSwitch {
+	public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+		
+		int option;
+		
+		System.out.println("1. Deposit");
+		System.out.println("2. Withdraw");
+		System.out.println("3. Opening of Account");
+		System.out.println("4. Other Services");
+		
+		System.out.print("Option: ");
+		option = sc.nextInt();
+		
+		switch (option) {
+			case 1: {
+				System.out.print("\n==========\n" + "Number 1: Deposit\n" + "==========");
+				break;
+			}
+			case 2: {
+				System.out.print("\n==========\n" + "Number 2: Withdraw\n" + "==========");
+				break;
+			}
+			case 3: {
+				System.out.print("\n==========\n" + "Number 3: Opening of Account\n" + "=========");
+				break;
+			}
+			case 4: {
+				System.out.print("\n=========\n" + "Number 4: Other Services\n" + "==========");
+				break;
+			}
+			default: {
+				System.out.print("\nI N V A L I D  O P T I O N");
+			}
+		}
+		
+		sc.close();
+	}
+}
