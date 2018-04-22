@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class GratuityCalculator {
+	public static void main (String args[]) {
+		double subtotal, total, gratuityRate, gratuity;
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter subtotal: ");
+		subtotal = sc.nextDouble();
+		System.out.println("Enter gratuity rate as a percentage (%): ");
+		gratuityRate = sc.nextDouble();
+		sc.close();
+		
+		gratuity = subtotal*gratuityRate/100;
+		total = subtotal + gratuity;
+		
+		System.out.println("Gratuity = " + gratuity + " and Total = $" + total);
+	}
+}
