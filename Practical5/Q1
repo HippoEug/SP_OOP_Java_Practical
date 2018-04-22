@@ -1,0 +1,46 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Q1CharArray {
+	public static void main(String ars[]) {
+		char[] msg = {'s', 't', 'r', 'e', 's', 's', 'e', 'd'};
+		int choice;
+		
+		Scanner sc = new Scanner(System.in);
+		
+		/*
+		for (int i=0; i<msg.length; i++) {
+			System.out.print(msg[i]);
+		}
+		
+		for (int i=(msg.length-1); i>=0; i--) {
+			System.out.print(msg[i]);
+		}
+		*/
+		
+		System.out.println("1: Display Array in Normal Order");
+		System.out.println("0: Display Array in Reverse Order");
+		System.out.print("Choice: ");
+		choice = sc.nextInt();
+		
+		switch (choice) {
+			case 1: {
+				for (int i=0; i<msg.length; i++) {
+					System.out.print(msg[i]);
+				}
+				break;
+			}
+			case 0: {
+				for (int i=(msg.length-1); i>=0; i--) {
+					System.out.print(msg[i]);
+				}
+				break;
+			}
+			default: {
+				System.out.print("catch e");
+			}
+		}
+		
+		sc.close();
+	}
+}
