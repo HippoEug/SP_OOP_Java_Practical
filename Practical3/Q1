@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class GuessingYesNo {
+	public static void main (String args[]) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Guess if it is a Yes or No");
+		String option = sc.next();
+		
+		/*
+		if (option.equalsIgnoreCase("No")) {
+			System.out.println("Congragulations");
+		}
+		else {
+			System.out.println("Wrong, thanks tho");
+		}
+		*/
+		
+		switch (option.toLowerCase()) {
+		case "no": {
+			System.out.println("Congragulations");
+			break;
+		}
+		case "yes": {
+			System.out.println("Wrong, thanks tho");
+		}
+		}
+		
+		sc.close();
+	}
+}
