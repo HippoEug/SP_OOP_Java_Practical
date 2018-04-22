@@ -1,0 +1,108 @@
+import java.util.Scanner;
+
+public class QuizMark {
+	public static void main (String args[]) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter John's Quiz Mark: ");
+		double johnMarks = sc.nextDouble();
+		
+		/*
+		if (johnMarks >= 80 && johnMarks <= 100) {
+			System.out.println("A Grade");
+		}
+		else if (johnMarks >=70 && johnMarks <= 79) {
+			System.out.println("B Grade");
+		}
+		else if (johnMarks >= 60 && johnMarks <= 69) {
+			System.out.println("C Grade");
+		}
+		else if (johnMarks >= 50 && johnMarks <= 59) {
+			System.out.println("D Grade");
+		}
+		else if (johnMarks >= 0 && johnMarks <= 49) {
+			System.out.println("F Grade");
+		}
+		else {
+			System.out.println("I N V A L I D  S C O R E");
+		}
+		
+		if (johnMarks < 100 && johnMarks > 0) {
+			if (johnMarks >= 80 && johnMarks <= 100) {
+				System.out.println("A Grade");
+			}
+			else if (johnMarks >=70 && johnMarks <= 79) {
+				System.out.println("B Grade");
+			}
+			else if (johnMarks >= 60 && johnMarks <= 69) {
+				System.out.println("C Grade");
+			}
+			else if (johnMarks >= 50 && johnMarks <= 59) {
+				System.out.println("D Grade");
+			}
+			else if (johnMarks >= 0 && johnMarks <= 49) {
+				System.out.println("F Grade");
+			}
+		}
+		else {
+			System.out.println("I N V A L I D  S C O R E");
+		}
+		
+		while (johnMarks != -1) {
+			if (johnMarks < 100 && johnMarks > 0) {
+				if (johnMarks >= 80 && johnMarks <= 100) {
+					System.out.println("A Grade");
+				}
+				else if (johnMarks >=70 && johnMarks <= 79) {
+					System.out.println("B Grade");
+				}
+				else if (johnMarks >= 60 && johnMarks <= 69) {
+					System.out.println("C Grade");
+				}
+				else if (johnMarks >= 50 && johnMarks <= 59) {
+					System.out.println("D Grade");
+				}
+				else if (johnMarks >= 0 && johnMarks <= 49) {
+					System.out.println("F Grade");
+				}
+				System.out.println("Enter John's Quiz Mark: ");
+				johnMarks = sc.nextDouble();
+			}
+			else {
+				System.out.println("I N V A L I D  S C O R E");
+				System.out.println("Enter John's Quiz Mark: ");
+				johnMarks = sc.nextDouble();
+			}
+		}
+		*/
+		
+		do {
+			if (johnMarks < 100 && johnMarks > 0) {
+				if (johnMarks >= 80 && johnMarks <= 100) {
+					System.out.println("A Grade");
+				}
+				else if (johnMarks >=70 && johnMarks <= 79) {
+					System.out.println("B Grade");
+				}
+				else if (johnMarks >= 60 && johnMarks <= 69) {
+					System.out.println("C Grade");
+				}
+				else if (johnMarks >= 50 && johnMarks <= 59) {
+					System.out.println("D Grade");
+				}
+				else if (johnMarks >= 0 && johnMarks <= 49) {
+					System.out.println("F Grade");
+				}
+				System.out.println("Enter John's Quiz Mark: ");
+				johnMarks = sc.nextDouble();
+			}
+			else {
+				System.out.println("I N V A L I D  S C O R E");
+				System.out.println("Enter John's Quiz Mark: ");
+				johnMarks = sc.nextDouble();
+			}
+		} while (johnMarks != -1);
+		
+		sc.close();
+	}
+}
