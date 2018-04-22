@@ -1,0 +1,24 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class AscendingOrder {
+	public static void main (String args[]) {
+		
+		double[] myArray = new double[4];
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter 3 Numbers");
+		for (int i=1; i<4; i++) {
+			System.out.print("Enter Number " + i + ": ");
+			myArray[i] = sc.nextDouble();
+		}
+		Arrays.sort(myArray);
+		System.out.print("Numbers are: ");
+		for (int j=1; j<myArray.length; j++) {
+			System.out.print(myArray[j] + " ");
+		}
+		System.out.print("in order.");
+		sc.close();
+	}
+}
