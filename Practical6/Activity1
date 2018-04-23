@@ -1,0 +1,26 @@
+
+public class Activity1 {
+	public static void main(String args[]) {
+		Student a = new Student();
+		Student b = new Student();
+		Student c = new Student();
+		
+		a.name = "Aaron";
+		b.name = "Barry";
+		c.name = "Catalina";
+		
+		System.out.print("The three student names are: " + a.name + " " + b.name + " and " + c.name);
+	}
+}
+
+class Student {
+	String name;
+	int admission_no;
+	double GPA_1;
+	double GPA_2;
+	double GPA_3;
+	
+	double getAvgGpa() {
+		return (GPA_1 + GPA_2 + GPA_3)/3;
+	}
+}
