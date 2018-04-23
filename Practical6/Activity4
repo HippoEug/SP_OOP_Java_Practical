@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class Activity4 {
+	public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+		
+		//Lecturer lecturer = new Lecturer("Doc");
+		LecturerX lecturer = new LecturerX("DocX", 5500);
+		System.out.print("Enter Salary to Add: ");
+		double tempSalary = sc.nextDouble();
+		System.out.println("The New Salary after addition is: " + lecturer.upSalary(tempSalary));
+		
+		System.out.print("Enter Salary to Deduct: ");
+		tempSalary = sc.nextDouble();
+		System.out.println("The New Salary after subtraction is: " + lecturer.cutSalary(tempSalary));
+		
+		sc.close();
+	}
+}
+
+class LecturerX {
+	String name;
+	double salary;
+	
+	LecturerX(String pName) { //i.e pName as in Parameter Name
+		name = pName;
+		salary = 1000;
+	}
+	
+	LecturerX(String pName, double pSalary) {
+		name = pName;
+		salary = pSalary;
+	}
+	
+	public double upSalary(double pSalary) {
+		salary = salary + pSalary;
+		return salary;
+	}
+	
+	public double cutSalary(double pSalary) {
+		salary = salary - pSalary;
+		return salary;
+	}
+}
