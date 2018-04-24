@@ -1,0 +1,26 @@
+
+public class Activity6 {
+	public static void main(String args[]) {
+		CopyMachine canon = new CopyMachine();
+		CopyMachine hp = new CopyMachine();
+		CopyMachine fujitsu = new CopyMachine();
+		
+		canon.copy(6);
+		hp.copy(10);
+		fujitsu.copy(8);
+		
+		System.out.println("Total Number of Copies: " + CopyMachine.totalNoOfCopy);
+	}
+}
+
+class CopyMachine {
+	public static int totalNoOfCopy;
+	
+	CopyMachine() {
+		totalNoOfCopy = 0;
+	}
+	
+	public void copy(int num) {
+		totalNoOfCopy = totalNoOfCopy + num;
+	}
+}
