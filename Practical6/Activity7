@@ -1,0 +1,40 @@
+//NEED TO FIX CODE. THIS IS NOT 100% CORRECT
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Activity7 {
+	public static void main(String args[]) {
+		Die randomDie = new Die();
+		Scanner sc = new Scanner(System.in);
+		int rollNumber, dieFace = 0;
+		
+		System.out.println("There are " + randomDie.numFaces + "on a die.");
+		System.out.print("How many times do you want to roll the die? Number: ");
+		rollNumber = sc.nextInt();
+		
+		keepRolling(dieFace, rollNumber);
+		
+		sc.close();
+	}
+	
+	public static void keepRolling(int d, int numTimes) {
+		for (int i=0; i<=numTimes; i++) {
+			d = Die.roll();
+			System.out.println("The new face value is: " + d);
+		}
+		//System.out.println("The new face value is: " + d);
+	}
+}
+
+class Die {
+	static Random random = new Random();
+	
+	public int numFaces = 6;
+	public static int randValue;
+	
+	public static int roll() {
+		randValue = random.nextInt(6) + 1; //Maximum of 6 and Minimum of 1
+		return randValue;
+	}
+}
