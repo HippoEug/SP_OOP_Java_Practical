@@ -1,0 +1,78 @@
+//
+//Accessor Methods: getX() and getY()
+//
+//Class Constants: SCREEN_WIDTH and SCREEN_HEIGHT
+//
+//do while loop with the condition -> while(true)
+//
+//Algorithm can be used to create a Ping Pong or someting game
+//
+
+public class Activity5 {
+	public static void main(String args[]) {
+		Bullet b = new Bullet();
+		b.setY(5);
+		
+		do {
+			System.out.println("(" + b.getX() + ", " + b.getY() + ")");
+			b.moveBullet();
+		}while (true);
+	}
+}
+
+class Bullet {
+	private int x, y;
+	private int xDirection, yDirection;
+	final static int SCREEN_WIDTH = 15, SCREEN_HEIGHT = 12;
+	
+	Bullet() { //constructor class
+		setX(0);
+		setY(0);
+		xDirection = 1;
+		yDirection = 1;
+	}
+	
+	public void setX(int a) {
+		if (a<0) {
+			x = 0;
+		}
+		else if (a>SCREEN_WIDTH) {
+			x = SCREEN_WIDTH;
+		}
+		else {
+			x = a;
+		}
+	}
+	
+	public void setY(int b) {
+		if (b<0) {
+			y = 0;
+		}
+		else if (b>SCREEN_HEIGHT) {
+			y = SCREEN_HEIGHT;
+		}
+		else {
+			y = b;
+		}
+	}
+	
+	public void moveBullet() {
+		x = x + xDirection;
+		y = y + yDirection;
+		
+		if ((x==0)||(x==15)) {
+			xDirection = xDirection*(-1);
+		}
+		if ((y==0)||(y==12)) {
+			yDirection = yDirection*(-1);
+		}
+	}
+	
+	public int getX() {
+		return x;
+	}
+	
+	public int getY() {
+		return y;
+	}
+}
