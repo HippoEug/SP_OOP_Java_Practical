@@ -1,0 +1,66 @@
+import java.util.Scanner;
+
+public class Q2ModelFans {
+	public static void main(String args[]){
+		Fan fan = new Fan();
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Initially, the radius and color of the fan is " + fan.getRadius() + " and " + fan.getColor() + " respectively.");
+		System.out.println("1. Set Radius");
+		System.out.println("2. Set Color");
+		System.out.println("3. Display Radius and Color of fan");
+		System.out.print("Choice: ");
+		int choice = sc.nextInt();
+		
+		switch (choice) {
+		case 1: {
+			System.out.print("Enter new fan Radius: ");
+			double temp = sc.nextDouble();
+			fan.setRadius(temp);
+			System.out.print("The new fan Radius is: " + fan.getRadius());
+			break;
+		}
+		case 2: {
+			System.out.print("Enter new fan Color: ");
+			String temp = sc.nextLine();
+			fan.setColor(temp);
+			break;
+		}
+		case 3: {
+			System.out.println("The radius and color of the fan is " + fan.getRadius() + " and " + fan.getColor() + " respectively.");
+			break;
+		}
+		}
+	}
+}
+
+class Fan {
+	private double radius = 5;
+	private String color = "White";
+	
+	public Fan() { //constructor
+		//empty constructor
+	}
+	
+	public double getRadius() {
+		return radius;
+	}
+	
+	public void setRadius(double dbRadius) {
+		radius = dbRadius;
+	}
+	
+	public String getColor() {
+		return color;
+	}
+	
+	public void setColor(String strColor) {
+		color = strColor;
+	}
+	
+	/*
+	public String toString() {
+		
+	}
+	*/
+}
