@@ -1,0 +1,21 @@
+import java.util.Random;
+
+public class Q1DieRandom {
+	public static void main(String args[]) {
+		DieX die = new DieX();
+	
+		System.out.print("The new value of the dice after rolling is: " + die.roll());
+	}
+}
+
+class DieX {
+	Random random = new Random();
+	
+	int numFaces = 6; //I don't know what to do with this lol
+	int dieRandVal;
+	
+	int roll() {
+		dieRandVal = random.nextInt(6) + 1;
+		return (dieRandVal);
+	}
+}
