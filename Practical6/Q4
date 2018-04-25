@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class Q4SPCoreVals {
+	public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+		CoreValues corVal = new CoreValues();
+		
+		String userEnteredVal;
+		boolean coreValFound = false;
+		
+		System.out.print("Enter an SP Core Value: ");
+		userEnteredVal = sc.nextLine();
+		
+		for (int i=0; i<corVal.spCoreValues.length; i++) {
+			if (corVal.spCoreValues[i].equals(userEnteredVal)) {
+				coreValFound = true;
+				break;
+			}
+			else {
+				coreValFound = false;
+			}
+		}
+		if (coreValFound == true) {
+			System.out.println(userEnteredVal + " is indeed a core value!");
+		}
+		else {
+			System.out.println(userEnteredVal + " is not a core value :(");
+		}
+		sc.close();
+	}
+}
+
+class CoreValues {
+	public String[] spCoreValues = {"Self-Discipline", "Personal Integrity", "Care & Concern", "Openness", "Responsibility", "Excellence"};
+}
