@@ -1,0 +1,35 @@
+
+public class Q3DonationInfo {
+	public static void main(String args[]) {
+		Donation mrLee = new Donation("Mr Lee KC", 100000);
+		Donation foundationTwo = new Donation("Foundation Two", 10000);
+		
+		mrLee.donate(8000);
+		mrLee.donate(5000);
+		foundationTwo.donate(5000);
+		foundationTwo.donate(3000);
+		foundationTwo.donate(9000);
+		
+		System.out.println("Mr Lee KC donated: $" + mrLee.amount);
+		System.out.println("Foundation Two donated: $" + foundationTwo.amount);
+		System.out.println("Total amount donated: $" + Donation.totalAmount);
+	}
+}
+
+class Donation {
+	public String donor;
+	public double amount, tempAmount;
+	public static double totalAmount;
+	
+	Donation(String name, double donatedAmount) {
+		donor = name;
+		amount = donatedAmount;
+		totalAmount = totalAmount + amount;
+	}
+	
+	public void donate(double amt) {
+		tempAmount = amt;
+		amount = amount + amt;
+		totalAmount = totalAmount + tempAmount;
+	}
+}
