@@ -1,0 +1,12 @@
+import java.util.Arrays;
+
+public class Q6Array {
+	public static void main(String args[]) {
+		double[] a = {98, 47, 27, 68, 100, 9,5};
+		Arrays.sort(a);
+		System.out.print("Arrays after being sorted are: ");
+		for (int i=0; i<a.length; i++) {
+			System.out.print(a[i] + " ");
+		}
+	}
+}
