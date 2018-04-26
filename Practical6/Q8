@@ -1,0 +1,43 @@
+
+public class Q8CopyMachine {
+	public static void main(String args[]) {
+		CopyMachineX cannon = new CopyMachineX();
+		CopyMachineX fujitsu = new CopyMachineX();
+		
+		System.out.println("Contents that would be printed out are: ");
+		
+		for (int i=0; i<(cannon.copy("Flying!", 6)).length; i++) {
+			System.out.println((cannon.copy("Flying!", 6))[i]);
+		}
+		
+		cannon.totalCopies(6);
+		
+		for (int i=0; i<(fujitsu.copy("High!", 8)).length; i++) {
+			System.out.println((fujitsu.copy("High", 8))[i]);
+		}
+		
+		fujitsu.totalCopies(8);
+		
+		System.out.print("Total number of items that will be printed out is: " + CopyMachineX.totalNoOfCopy);
+	}
+}
+
+class CopyMachineX {
+	public static int totalNoOfCopy;
+	
+	CopyMachineX(){
+		totalNoOfCopy = 0;
+	}
+	
+	public String[] copy(String strText, int intNos) {
+		String[] printerArray = new String[intNos];
+		for (int i=0; i<intNos; i++) {
+			printerArray[i] = strText;
+		}
+		return printerArray;
+	}
+	public void totalCopies(int copies) {
+		totalNoOfCopy = totalNoOfCopy + copies;
+	}
+	
+}
