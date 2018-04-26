@@ -1,0 +1,42 @@
+
+public class Activity1 {
+	public static void main(String args[]) {
+		Rentals boatRental = new Rentals();
+		YatchRental yatchRental = new YatchRental();
+		
+		boatRental.nameOfBoat = "Neptune 7";
+		boatRental.chargePerHour = 150;
+		boatRental.customerName = "Cody";
+		boatRental.hoursBooked = 10;
+		
+		yatchRental.nameOfBoat = "Mermaid 8";
+		yatchRental.chargePerHour = 220;
+		yatchRental.customerName = "Ron";
+		yatchRental.hoursBooked = 12;
+		yatchRental.captainName = "Ashraf";
+		yatchRental.captainCharges = 300;
+		
+		System.out.println("The total cost for renting " + yatchRental.nameOfBoat + " for " + yatchRental.customerName + " is: $" + yatchRental.costOfRentalYacht());
+		System.out.println("The total cost for renting " + boatRental.nameOfBoat + " for " + boatRental.customerName + " is: $" + boatRental.costOfRentalBoat());
+	}
+}
+
+class Rentals {
+	String nameOfBoat, customerName;
+	double chargePerHour, hoursBooked;
+	
+	public double costOfRentalBoat(){
+		double totalBoatCharge = chargePerHour*hoursBooked;
+		return totalBoatCharge;
+	}
+}
+
+class YatchRental extends Rentals {
+	String captainName;
+	double captainCharges;
+	
+	public double costOfRentalYacht() {
+		double totalYachtCharge = (chargePerHour*hoursBooked)+captainCharges;
+		return totalYachtCharge;
+	}
+}
