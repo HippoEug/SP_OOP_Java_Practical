@@ -9,13 +9,12 @@ public class Q1DieRandom {
 }
 
 class DieX {
-	Random random = new Random();
-	
 	int numFaces = 6; //I don't know what to do with this lol
-	int dieRandVal;
 	
 	int roll() {
-		dieRandVal = random.nextInt(6) + 1;
+		Random random = new Random();
+		int dieRandVal;
+		dieRandVal = random.nextInt(numFaces) + 1;
 		return (dieRandVal);
 	}
 }
