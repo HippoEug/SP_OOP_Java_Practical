@@ -1,5 +1,5 @@
 
-public class Activity1 {
+public class Activity2 {
 	public static void main(String args[]) {
 		Rentals boatRental = new Rentals();
 		YatchRental yatchRental = new YatchRental();
