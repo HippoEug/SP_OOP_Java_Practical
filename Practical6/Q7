@@ -1,0 +1,43 @@
+import java.lang.Math;
+
+public class Q7TwoDPointCoordinates {
+	public static void main(String args[]) {
+		TwoDPoint point1 = new TwoDPoint();
+		TwoDPoint point2 = new TwoDPoint(3.0, 4.0);
+		
+		System.out.println("The distance is: " + point1.findDistance(point2));
+	}
+}
+
+class TwoDPoint {
+	private double x, y;
+
+	TwoDPoint() {
+		x = 0;
+		y = 0;
+	}
+	
+	TwoDPoint(double xC, double yC) {
+		x = xC;
+		y = yC;
+	}
+	
+	public double findDistance(TwoDPoint remotePoint) {
+		double distX = remotePoint.x - x;
+		System.out.println("The remotePoint.x = " + remotePoint.x + " and x = " + x + ", distX = " + distX);
+		double distY = remotePoint.y - y;
+		System.out.println("The remotePoint.y = " + remotePoint.y + " and y = " + y + ", disty = " + distY);
+		
+		return Math.hypot(distX, distY);
+	}
+	
+	public double getX() {
+		return x;
+	}
+	
+	public double getY() {
+		return y;
+	}
+	
+	
+}
