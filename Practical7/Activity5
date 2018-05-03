@@ -1,0 +1,67 @@
+NOTE: TYPE IS PROTECTED, NOT PUBLIC IN QUESTION
+
+public class Activity5 {
+	public static void main(String args[]) {
+		Dog dog = new Dog();
+		Cat c1 = new Cat("Kelly");
+		Cat c2 = new Cat("Momo", "Persian");
+		
+		Animal ref;
+		ref = dog;
+		ref.Sound();
+		System.out.println(ref.toString());
+		ref = c1;
+		ref.Sound();
+		System.out.println(ref.toString());
+		ref = c2;
+		ref.Sound();
+		System.out.println(ref.toString());
+	}
+}
+
+class Animal {
+	protected String type; //to store animal type ie Dog or Cat
+	
+	public Animal(String s) { //constructor to set type
+		type = s;
+	}
+	void Sound() { //prints the sound of an animal
+		
+	}
+	public String toString() {
+		return ("This is a " + type);
+	}
+}
+
+class Dog extends Animal {
+	public Dog() {
+		super("Dog");
+	}
+	@Override
+	void Sound() {
+		System.out.println("Woof Woof");
+	}
+}
+
+class Cat extends Animal {
+	private String name;
+	private String breed;
+	
+	public Cat(String theName) {
+		super("Cat");
+		name = theName;
+	}
+	public Cat(String theName, String theBreed) {
+		super("Cat");
+		name = theName;
+		breed = theBreed;
+	}
+	@Override
+	void Sound() {
+		System.out.println("Miaoow?");
+	}
+	@Override
+	public String toString() {
+		return ("This is a " + type + ", named " + this.name + " of breed " + this.breed);
+	}
+}
