@@ -1,0 +1,52 @@
+
+public class Activity4 {
+	public static void main(String[] args) {
+		Boat b1 = new Boat("Naptune 7", 150);
+		b1.makeBooking("Cody", 10);
+		System.out.println(b1.getTotal());
+		Yacht y1 = new Yacht("Mermaid 8", 220, "Ashraf", 300);
+		y1. makeBooking("Ron", 12);
+		System.out.println(y1.getTotal());
+	}
+}
+
+class Boat {
+	String name;
+	double perHour;
+	String customerName;
+	double hoursBooked;
+	
+	Boat (String a, double b) { //constructor
+		name = a;
+		perHour = b;
+	}
+	
+	void makeBooking (String a, double b) {
+		customerName = a;
+		hoursBooked = b;
+	}
+	
+	double getTotal() {
+		double total = 0;
+		total = perHour*hoursBooked;
+		return total;
+	}
+}
+
+class Yacht extends Boat {
+	String captainName;
+	double captainCost;
+	
+	Yacht(String a, double b, String c, double d) {
+		super(a, b);
+		captainName= c;
+		captainCost = d;
+	}
+	
+	@Override
+	double getTotal() {
+		double total = 0;
+		total = (perHour*hoursBooked) + captainCost;
+		return total;
+	}
+}
