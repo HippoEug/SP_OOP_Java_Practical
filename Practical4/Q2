@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class TestProgram {
+	public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+		
+		String message;
+		int times;
+		
+		System.out.print("Enter message: ");
+		message = sc.next();
+		System.out.print("Enter how many times you want to print this message for whatever reason: ");
+		times = sc.nextInt();
+		
+		displayMessage(message, times);
+	}
+	
+	public static void displayMessage(String message, int nTimes) {
+		/*
+		for (int i=0; i < nTimes; i++) {
+			System.out.println((i+1) + ". " + message);
+		}
+		*/
+		int i = 0;
+		do {
+			System.out.println((i+1) + ". " + message);
+			i++;
+		} while (i < nTimes);
+	}
+}
