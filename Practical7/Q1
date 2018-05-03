@@ -1,0 +1,36 @@
+public class Q1BoxFanClass {
+	public static void main(String args[]){
+		BoxFan boxfan = new BoxFan(10, "blue");
+		System.out.println(boxfan.toString());
+	}
+}
+
+class Fan {
+	private String color;
+	
+	public Fan(String colorX) {
+		color = colorX;
+	}
+	
+	public String getColor() {
+		return color;
+	}
+
+	public String toString() {
+		return ("Color = " + color);
+	}
+}
+
+class BoxFan extends Fan {
+	private int timing;
+	
+	public BoxFan(int time, String color) {
+		super(color);
+		timing = time;
+	}
+	
+	@Override 
+	public String toString() {
+		return ("Color = " + getColor() + ", timing = " + timing);
+	}
+}
