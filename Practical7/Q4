@@ -1,0 +1,49 @@
+import java.lang.Math;
+
+public class Q4ThreeDPoint {
+	public static void main(String args[]) {
+		ThreeDPoint point1 = new ThreeDPoint();
+		ThreeDPoint point2 = new ThreeDPoint(10.0, 30, 25.5);
+		
+		System.out.println("The distance is: " + point1.findDistance(point2));
+	}
+}
+
+class ThreeDPoint {
+	private double x, y, z;
+
+	ThreeDPoint() {
+		x = 0;
+		y = 0;
+		z = 0;
+	}
+	
+	ThreeDPoint(double xC, double yC, double zC) {
+		x = xC;
+		y = yC;
+		z = zC;
+	}
+	
+	public double findDistance(ThreeDPoint remotePoint) {
+		double distX = remotePoint.x - x;
+		System.out.println("The remotePoint.x = " + remotePoint.x + " and x = " + x + ", distX = " + distX);
+		double distY = remotePoint.y - y;
+		System.out.println("The remotePoint.y = " + remotePoint.y + " and y = " + y + ", distY = " + distY);
+		double distZ = remotePoint.z - z;
+		System.out.println("The remotePoint.z = " + remotePoint.z + " and y = " + z + ", distZ = " + distZ);
+		
+		return Math.sqrt(Math.pow(distX, 2) + Math.pow(distY, 2) + Math.pow(distZ, 2));
+	}
+	
+	public double getX() {
+		return x;
+	}
+	
+	public double getY() {
+		return y;
+	}
+	
+	public double getZ() {
+		return z;
+	}
+}
