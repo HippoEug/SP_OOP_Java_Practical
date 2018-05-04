@@ -1,0 +1,17 @@
+import java.util.Random;
+
+public class Q3Random4D {
+	public static void main(String args[]) {
+		FourD fourD = new FourD();
+		System.out.println("Random num = "+ fourD.next4D());
+	}
+}
+
+class FourD {
+	public String next4D() {
+		Random random = new Random();
+		
+		int tempNum = random.nextInt(9);
+		return (Integer.toString(tempNum));
+	}
+}
