@@ -1,0 +1,70 @@
+
+public class Q2EmployeeClass {
+	public static void main(String args[]) {
+		float tempWkSalary;
+		
+		SalesMan salesmanOne = new SalesMan();
+		SalesMan salesmanTwo = new SalesMan("Brian", "0x01", "West", 250f, 5000f, 0.10f);
+		
+		salesmanOne.calcWeeklySalary();
+		tempWkSalary = salesmanOne.weeklySalary;
+		
+		System.out.println("Salesman One has a weekly salary of: " + tempWkSalary);
+		
+		salesmanTwo.calcWeeklySalary();
+		tempWkSalary = salesmanTwo.weeklySalary;
+		
+		System.out.println("Salesman Two, " + salesmanTwo.getName() + ", from " + salesmanTwo.region + " has a weekly salay of: " + tempWkSalary);
+	}
+}
+
+class Employee {
+	String name, sSN;
+	float weeklySalary;
+	
+	public Employee() {
+		name = " ";
+		sSN = " ";
+	}
+	
+	public Employee(String name, String sSN) {
+		this.name = name;
+		this.sSN = sSN;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public float getWeeklySalary() {
+		return weeklySalary;
+	}
+	
+	public void calcWeeklySalary() {
+		weeklySalary = 15*5;
+	}
+}
+
+class SalesMan extends Employee {
+	String region;
+	private float baseWkPay, totalWkSales, commission;
+	
+	public SalesMan() {
+		totalWkSales = 0.0f;
+		commission = 0.10f; //base rate is 10%
+		baseWkPay = 250.0f; //base pay as $250/week
+	}
+	
+	public SalesMan(String name, String sSN, String reg, float basePay, float salesTotal, float comm) {
+		super(name, sSN);
+		region = reg;
+		totalWkSales = salesTotal;
+		commission = comm;
+		baseWkPay = basePay;
+	}
+	
+	@Override
+	public void calcWeeklySalary() {
+		weeklySalary = baseWkPay + commission*totalWkSales;
+	}
+}
