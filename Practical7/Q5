@@ -1,0 +1,74 @@
+
+public class Q5HousePet {
+	public static void main(String args[]) {
+		DogX youDog = new DogX("Doggo", "Owner", "Dog Food", 3);
+		System.out.println(youDog.toString());
+	}
+}
+
+abstract class HousePet { //abstracted class, only definition no implementation
+	protected String name, favouriteFood, owner;
+	
+	public HousePet() {
+		name = "defaultPooky"; //default pet name Pooky
+		owner = "defaultDonna"; //default owner Donna
+		favouriteFood = "defaultCookies"; //default favourite food Cookies
+	}
+	
+	public HousePet(String n, String o, String ff) {
+		name = n;
+		owner = o;
+		favouriteFood = ff;
+	}
+	
+	public abstract String where_I_Sleep();
+	public abstract String how_I_move();
+	
+	public void setName(String n) {
+		name = n;
+	}
+	
+	public void setFavouriteFood(String ff) {
+		favouriteFood = ff;
+	}
+	
+	public void setOwner(String o) {
+		owner = o;
+	}
+	
+	public String toString() {
+		String output = ("I am " + name + ", a house pet. \nMy favourite food is " + favouriteFood + ". \nMy owner is " + owner + ". :)");
+		return output;
+	}
+}
+
+class DogX extends HousePet {
+	protected int numberOfWalksPerDay;
+	
+	public DogX() {
+		numberOfWalksPerDay = 2;
+	}
+	
+	public DogX(String n, String o, String ff, int numWalks) {
+		super (n, o, ff);
+		numberOfWalksPerDay = numWalks;
+	}
+
+	@Override
+	public String where_I_Sleep() {
+		// TODO Auto-generated method stub
+		return "home";
+	}
+
+	@Override
+	public String how_I_move() {
+		// TODO Auto-generated method stub
+		return "my legs";
+	}
+	
+	@Override
+	public String toString() {
+		String output = super.toString() + "\nI have " + numberOfWalksPerDay + " walks a day, I sleep at " + where_I_Sleep() + ", and move using " + how_I_move();
+		return output;
+	}
+}
