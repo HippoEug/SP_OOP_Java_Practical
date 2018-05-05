@@ -1,0 +1,35 @@
+import javax.swing.JFrame;
+import java.awt.Container;
+import java.awt.FlowLayout;
+
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+public class Activity2 {
+	public static void main(String args[]) {
+		NewGUI gui = new NewGUI();
+		gui.setVisible(true);
+	}
+}
+
+class NewGUI extends JFrame {
+	private static final long serialVersionUID = 1L;
+
+	public NewGUI() {
+		Container container = getContentPane();
+		container.setLayout(new FlowLayout());
+		
+		JLabel labelName = new JLabel("Name:");
+		JLabel labelPassword = new JLabel("Password:");
+		JTextField txtName = new JTextField("(Enter your Name)");
+		JTextField txtPassword = new JTextField("(Enter your Password)");
+		JButton buttonOK = new JButton("OK");
+		
+		container.add(labelName);
+		container.add(txtName);
+		container.add(labelPassword);
+		container.add(txtPassword);
+		container.add(buttonOK);
+	}
+}
