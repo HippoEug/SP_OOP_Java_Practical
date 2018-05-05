@@ -1,0 +1,87 @@
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+import javax.swing.JList;
+import javax.swing.JFrame;
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.FlowLayout;
+
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+public class JListExample {
+	public static void main(String[] args) {
+		JListGUI gui = new JListGUI();
+		
+		gui.setTitle("JList Example");
+		gui.setSize(400, 200);
+		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		gui.setVisible(true);
+	}
+}
+
+class JListGUI extends JFrame {
+	private static final long serialVersionUID = 1;
+	
+	JTextField textName = new JTextField("(Enter your name)");
+	
+	String[] colorChoice = {"Red", "Blue", "Yellow", "Green"};
+	JList listColor = new JList(colorChoice);
+	
+	JListGUI() {
+		Container container = getContentPane();
+		container.setLayout(new FlowLayout());
+		
+		JLabel labelName = new JLabel("Name:");
+		JButton buttonOk = new JButton("Ok");
+		JButton buttonClear = new JButton("Clear");
+		
+		container.add(labelName);
+		container.add(textName);
+		container.add(buttonOk);
+		container.add(buttonClear);
+		container.add(listColor);
+		
+		buttonOk.addActionListener(new buttonOkListener());
+		buttonClear.addActionListener(new buttonClearListener());
+		listColor.addListSelectionListener(new listColorListener());
+	}
+	
+	class buttonOkListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			JOptionPane.showMessageDialog(null, textName.getText());
+		}
+	}
+	
+	class buttonClearListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			textName.setText("");
+		}
+	}
+	
+	class listColorListener implements ListSelectionListener {
+		public void valueChanged(ListSelectionEvent e) {
+			switch (listColor.getSelectedIndex()) {
+			case 0:
+				textName.setForeground(Color.RED);
+				break;
+			case 1:
+				textName.setForeground(Color.BLUE);
+				break;
+			case 2:
+				textName.setForeground(Color.YELLOW);
+				break;
+			case 3:
+				textName.setForeground(Color.GREEN);
+				break;
+			}
+		}
+	}
+}
