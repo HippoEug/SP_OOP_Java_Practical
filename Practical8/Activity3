@@ -1,0 +1,49 @@
+import javax.swing.JFrame;
+import java.awt.Container;
+import java.awt.FlowLayout;
+
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Activity3 {
+	public static void main(String args[]) {
+		BaseGUI gui = new BaseGUI();
+		gui.setTitle("Activity 3");
+		gui.setSize(400, 100);
+		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		gui.setVisible(true);
+	}
+}
+
+class BaseGUI extends JFrame {
+	private static final long serialVersionUID = 1;
+	
+	JTextField textName = new JTextField("(Enter your name)");
+
+	public BaseGUI() {
+		Container container = getContentPane();
+		container.setLayout(new FlowLayout());
+		
+		JLabel labelName = new JLabel("Name:");
+		JButton buttonOk = new JButton("Ok");
+		JButton buttonClear = new JButton("Clear");
+		
+		container.add(labelName);
+		container.add(textName);
+		container.add(buttonOk);
+		container.add(buttonClear);
+		
+		buttonClear.addActionListener(new buttonClearListener());
+	}
+	
+	class buttonClearListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			textName.setText("");
+		}
+	}
+}
