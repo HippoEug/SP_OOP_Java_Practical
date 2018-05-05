@@ -9,6 +9,9 @@ import javax.swing.JButton;
 public class Activity2 {
 	public static void main(String args[]) {
 		NewGUI gui = new NewGUI();
+		//gui.setTitle("Simple Name & Password GUI");
+		//gui.setSize(600,400);
+		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		gui.setVisible(true);
 	}
 }
