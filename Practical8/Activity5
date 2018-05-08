@@ -1,0 +1,47 @@
+import javax.swing.JFrame;
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.BorderLayout;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+public class Activity5 {
+	public static void main(String[] args) {
+		ActivityGUIExample randomGUI = new ActivityGUIExample();
+		
+		randomGUI.setTitle("Activity 5");
+		randomGUI.setSize(600,400);
+		randomGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		randomGUI.setVisible(true);
+	}
+}
+
+class ActivityGUIExample extends JFrame{
+	private static final long serialVersionUID = 1;
+	
+	JTextField timeText = new JTextField("(time to be displayed here");
+	JPanel panel1, panel2;
+	JButton[] buttonNumbers = new JButton[9];
+	
+	public ActivityGUIExample() {
+		Container container = getContentPane();
+		container.setLayout(new FlowLayout());
+		
+		panel1 = new JPanel(new GridLayout(3,3));
+		panel2 = new JPanel(new BorderLayout());
+		
+		for (int i=0; i<9; i++) {
+			buttonNumbers[i] = new JButton("" + (i+1)); //modify this 
+			panel1.add(buttonNumbers[i]);
+		}
+		
+		panel2.add(timeText, BorderLayout.NORTH);
+		panel2.add(panel1, BorderLayout.SOUTH);
+		
+		JButton foodButton = new JButton("Button Niggas");
+		container.add(foodButton);
+		container.add(panel2);
+	}
+}
