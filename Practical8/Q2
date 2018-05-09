@@ -1,0 +1,92 @@
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Q2GUIPin {
+	public static void main(String[] args){
+		GUIPin thisGUI = new GUIPin();
+		
+		thisGUI.setTitle("Pin Pad");
+		thisGUI.setSize(350, 300);
+		thisGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		thisGUI.setVisible(true);
+	}
+}
+
+class GUIPin extends JFrame {
+	private static final long serialVersionUID = 1;
+	private final String hardCodedPassword = "1234";
+	int failAttemptError = 0;
+	
+	JTextField pinTextField = new JTextField();
+	
+	GUIPin() {
+		Container container = getContentPane();
+		
+		JPanel panel1 = new JPanel(new GridLayout(4,3));
+		JPanel panel2 = new JPanel(new BorderLayout());
+		
+		container.setLayout(new BorderLayout());
+		
+		JLabel numberPinLabel = new JLabel("Please Enter your PIN");
+		JButton[] buttonNumbers =new JButton[12];
+		
+		buttonNumbers[9] = new JButton("Cancel");
+		buttonNumbers[10] = new JButton("" + 0);
+		buttonNumbers[11] = new JButton("Enter");
+		
+		for (int i=0; i<9; i++) {
+			buttonNumbers[i] = new JButton("" + (i+1)); //modify this 
+			buttonNumbers[i].addActionListener(new keypadListener(i));
+			panel1.add(buttonNumbers[i]);
+		}
+		panel1.add(buttonNumbers[9]);
+		buttonNumbers[9].addActionListener(new buttonCancelListener());
+		panel1.add(buttonNumbers[10]);
+		buttonNumbers[10].addActionListener(new keypadListener(-1));
+		panel1.add(buttonNumbers[11]);
+		buttonNumbers[11].addActionListener(new buttonOkListener());
+		
+		container.add(numberPinLabel, BorderLayout.NORTH);
+		panel2.add(pinTextField, BorderLayout.NORTH);
+		panel2.add(panel1, BorderLayout.CENTER);
+		container.add(panel2);
+	}
+	
+	class keypadListener implements ActionListener {
+		int num;
+		public keypadListener(int i){
+		    this.num = i+1;
+		}
+		
+		public void actionPerformed(ActionEvent e){
+			pinTextField.setText(pinTextField.getText() + num);
+		}
+	}
+	
+	class buttonCancelListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			pinTextField.setText("");
+		}
+	}
+	
+	class buttonOkListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			System.out.println("PinTextField = " + pinTextField.getText());
+			System.out.println("Hard Coded Password = " + hardCodedPassword);
+			if (pinTextField.getText().equals(hardCodedPassword)) {
+				JOptionPane.showMessageDialog(null, "Your Activation is Successful!", "Access Granted", JOptionPane.PLAIN_MESSAGE);
+				failAttemptError = 0;
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "INVALID PIN", "Error", JOptionPane.ERROR_MESSAGE);
+				failAttemptError++;
+				
+				if (failAttemptError >= 3) {
+					JOptionPane.showMessageDialog(null, "3 OR MORE FAILED ATTEMPTS");
+				}
+			}
+		}
+	}
+}
