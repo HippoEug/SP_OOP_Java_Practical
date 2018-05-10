@@ -1,0 +1,155 @@
+import java.awt.*;
+import javax.swing.*;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Q3_2PinTruthTable {
+	public static void main(String[] args){
+		GUIPinValid thisGUI = new GUIPinValid();
+		
+		thisGUI.setTitle("Pin Pad");
+		thisGUI.setSize(350, 300);
+		thisGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		thisGUI.setVisible(true);
+	}
+}
+
+class GUIPinValid extends JFrame {
+	private static final long serialVersionUID = 1;
+	private final String hardCodedPassword = "1234";
+	int failAttemptError = 0;
+	
+	JTextField pinTextField = new JTextField();
+	
+	GUIPinValid() {
+		Container container = getContentPane();
+		
+		JPanel panel1 = new JPanel(new GridLayout(4,3));
+		JPanel panel2 = new JPanel(new BorderLayout());
+		
+		container.setLayout(new BorderLayout());
+		
+		JLabel numberPinLabel = new JLabel("Please Enter your PIN");
+		JButton[] buttonNumbers =new JButton[12];
+		
+		buttonNumbers[9] = new JButton("Cancel");
+		buttonNumbers[10] = new JButton("" + 0);
+		buttonNumbers[11] = new JButton("Enter");
+		
+		for (int i=0; i<9; i++) {
+			buttonNumbers[i] = new JButton("" + (i+1)); //modify this 
+			buttonNumbers[i].addActionListener(new keypadListener(i));
+			panel1.add(buttonNumbers[i]);
+		}
+		panel1.add(buttonNumbers[9]);
+		buttonNumbers[9].addActionListener(new buttonCancelListener());
+		panel1.add(buttonNumbers[10]);
+		buttonNumbers[10].addActionListener(new keypadListener(-1));
+		panel1.add(buttonNumbers[11]);
+		buttonNumbers[11].addActionListener(new buttonOkListener());
+		
+		container.add(numberPinLabel, BorderLayout.NORTH);
+		panel2.add(pinTextField, BorderLayout.NORTH);
+		panel2.add(panel1, BorderLayout.CENTER);
+		container.add(panel2);
+	}
+	
+	class keypadListener implements ActionListener {
+		int num;
+		public keypadListener(int i){
+		    this.num = i+1;
+		}
+		
+		public void actionPerformed(ActionEvent e){
+			pinTextField.setText(pinTextField.getText() + num);
+		}
+	}
+	
+	class buttonCancelListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			pinTextField.setText("");
+		}
+	}
+	
+	class buttonOkListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			System.out.println("PinTextField = " + pinTextField.getText());
+			System.out.println("Hard Coded Password = " + hardCodedPassword);
+			if (pinTextField.getText().equals(hardCodedPassword)) {
+				JOptionPane.showMessageDialog(null, "Your Activation is Successful!", "Access Granted", JOptionPane.PLAIN_MESSAGE);
+				failAttemptError = 0;
+				TruthTableGUI ttGUI = new TruthTableGUI();
+				
+				ttGUI.setTitle("AND Gate Truth Table");
+				ttGUI.setSize(350, 300);
+				ttGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				ttGUI.setVisible(true);
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "INVALID PIN", "Error", JOptionPane.ERROR_MESSAGE);
+				failAttemptError++;
+				
+				if (failAttemptError >= 3) {
+					JOptionPane.showMessageDialog(null, "3 OR MORE FAILED ATTEMPTS");
+				}
+			}
+		}
+	}
+}
+
+class TruthTableGUIValid extends JFrame {
+	private static final long serialVersionUID = 1;
+	
+	JButton[] truthTableValues = new JButton[15];
+	JPanel panel1 = new JPanel(new GridLayout(5,3));
+	
+	TruthTableGUIValid() {
+		Container container = getContentPane();
+		container.setLayout(new BorderLayout());
+		
+		truthTableValues[0] = new JButton("a");
+		truthTableValues[1] = new JButton("b");
+		truthTableValues[2] = new JButton("f");
+		truthTableValues[2].addActionListener(new buttonFListener());
+		truthTableValues[3] = new JButton("0");
+		truthTableValues[4] = new JButton("0");
+		truthTableValues[5] = new JButton("0"); //hide
+		truthTableValues[6] = new JButton("0");
+		truthTableValues[7] = new JButton("1");
+		truthTableValues[8] = new JButton("0"); //hide
+		truthTableValues[9] = new JButton("1");
+		truthTableValues[10] = new JButton("0");
+		truthTableValues[11] = new JButton("0"); //hide
+		truthTableValues[12] = new JButton("1");
+		truthTableValues[13] = new JButton("1");
+		truthTableValues[14] = new JButton("1"); //hide
+		
+		panel1.add(truthTableValues[0]);
+		truthTableValues[0].setBackground(Color.ORANGE);
+		panel1.add(truthTableValues[1]);
+		truthTableValues[1].setBackground(Color.ORANGE);
+		panel1.add(truthTableValues[2]);
+		truthTableValues[2].setBackground(Color.ORANGE);
+		truthTableValues[5].setForeground(Color.WHITE);
+		truthTableValues[8].setForeground(Color.WHITE);
+		truthTableValues[11].setForeground(Color.WHITE);
+		truthTableValues[14].setForeground(Color.WHITE);
+		
+		for (int i=3; i<15; i++) {
+			truthTableValues[i].setBackground(Color.WHITE);
+			panel1.add(truthTableValues[i]);
+		}
+		
+		container.add(panel1, BorderLayout.CENTER);
+	}
+	
+	class buttonFListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			truthTableValues[5].setForeground(Color.BLACK);
+			truthTableValues[8].setForeground(Color.BLACK);
+			truthTableValues[11].setForeground(Color.BLACK);
+			truthTableValues[14].setForeground(Color.BLACK);
+		}
+	}
+}
